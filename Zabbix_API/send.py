@@ -14,8 +14,8 @@ class Send_Message():
     def Token(self):
         url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
         # corpid,corpsecret 为微信端获取
-        params = {'corpid':'wx02cd0899a03b0fec',
-        'corpsecret': r'W8GSXBuU8bGSkqdI-MZkWv2fXHRHgcNqOrfNzuiw1Ezb1mTyCE2CT5dr4bPffDbX'
+        params = {'corpid':'xxx',
+        'corpsecret': r'xxxxx'
         }
         url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
         r = requests.get(url=url, params=params)
