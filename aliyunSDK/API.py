@@ -13,8 +13,8 @@ import requests
 
 
 
-access_key_id = 'LTAICYnd0O6o6Aey'
-access_key_secret = 'weZ9tapicoQTbWJUliuzXJcG8p3lJj'
+access_key_id = 'xxx'
+access_key_secret = 'xxx'
 server_address = 'https://ecs.aliyuncs.com'
 #定义参数
 user_params = {
