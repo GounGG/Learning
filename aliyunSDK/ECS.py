@@ -8,7 +8,7 @@ from aliyunsdkecs.request.v20140526 import DescribeInstancesRequest
     获取所在区域的所有esc主机
 '''
 def get_sys_info():
-    clt = client.AcsClient('LTAICYnd0O6o6Aey','weZ9tapicoQTbWJUliuzXJcG8p3lJj','cn-hangzhou')
+    clt = client.AcsClient('xxx','xxx','cn-hangzhou')
     request = DescribeInstancesRequest.DescribeInstancesRequest()
     #request.set_PageNumber(1)   #设置页数
     request.set_PageSize(50)        #设置每页返回多少，默认为10条
