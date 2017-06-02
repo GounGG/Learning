@@ -5,7 +5,7 @@ import  json
 import time
 from send import  *
 
-url = "http://117.144.238.88/zabbix/api_jsonrpc.php"
+url = "http://IP/zabbix/api_jsonrpc.php"
 header = {"Content-Type":"application/json"}
 
 class Zabbix():
@@ -16,8 +16,8 @@ class Zabbix():
         data = json.dumps({"jsonrpc": "2.0",
             "method": "user.login",
             "params": {
-                "user": "admin",
-                "password": "HT#monitor"
+                "user": "xxx",
+                "password":r"xxx"
             },
             "id": 0})
         r = requests.post(url = self.url, data = data, headers = self.header)
