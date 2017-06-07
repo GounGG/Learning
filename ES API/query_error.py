@@ -20,7 +20,11 @@ class ES_API:
 
     def process(self):
         v = self.get()
-        return (v['hits']['hits'])
+        if v.get('status'):
+            pass
+        else:
+            return (v['hits']['hits'])
+
 
 def get_data(index):
     date = time.strftime('%Y.%m.%d', time.localtime(time.time()))
@@ -46,6 +50,8 @@ def data():
     pool.join()
     return  results
 
+
+
 def returnData():
     value = {}
     for i in data():
@@ -65,7 +71,10 @@ def returnData():
     return value
 
 if __name__ == '__main__':
-    print returnData()
+    if returnData():
+        print(returnData())
+    else:
+        print('value is null')
 
 
 
