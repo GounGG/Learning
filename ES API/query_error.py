@@ -50,8 +50,6 @@ def data():
     pool.join()
     return  results
 
-
-
 def returnData():
     value = {}
     for i in data():
@@ -70,11 +68,16 @@ def returnData():
                 ff = ff + 1
     return value
 
-if __name__ == '__main__':
+def if_null():
     if returnData():
         print(returnData())
     else:
-        print('value is null')
+        pass
+    time.sleep(300)
+
+if __name__ == '__main__':
+    while True:
+        if_null()
 
 
 
