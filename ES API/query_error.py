@@ -6,6 +6,11 @@ import time
 from multiprocessing.dummy import Pool as ThreadPool
 import  re
 
+'''
+delect index    url:"http://192.168.30.135:9200/app-2017.05.16"  headers:'Content-Type: application/json' data:{"query": {"match_all":{}}}'
+select log  curl： "http://192.168.30.135:9200/_search"  headers：'Content-Type: application/json' data：{"query": {"match": {"message": {"query": "ERROR|77" }}}'
+'''
+
 # request API
 class ES_API:
     def __init__(self, url, data, headers):
@@ -43,7 +48,7 @@ def get_data(index):
     return C.process()
 
 def data():
-    indexs=['app', 'tomcatweb', 'system']
+    indexs=['app', 'tomcatweb', 'system', 'logstash-nginx-access']
     pool = ThreadPool(len(indexs))
     results = pool.map(get_data, indexs)
     pool.close()
@@ -78,7 +83,5 @@ def if_null():
 if __name__ == '__main__':
     while True:
         if_null()
-
-
 
 
