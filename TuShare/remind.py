@@ -10,7 +10,9 @@ start = time.strftime('%Y-%m-%d',time.localtime(time.time()-31536000))
 
 def data(code, end, start):
     res = ts.get_hist_data(code=code, start=start, end=end, ktype='D')
+    # ts 取回来的数据格式为DataFrame数据格式
     df=DataFrame(res)
+    # 获取索引为open的内容，获取后的格式为数组
     sdata=df['open'].values
     sum=0
     avg=len(sdata)
