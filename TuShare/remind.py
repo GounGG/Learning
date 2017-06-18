@@ -27,11 +27,15 @@ def data():
     # 设置查找的索引
     code = ['000001', '399001']
     # 使用loc查找多列，多元数组，loc['游标，1,3<打印1-3行>'， '[list]<需要查找的列>']
-    to_data = df.loc[:, ['code', 'change', 'preclose']]
+    to_data = df.loc[:, ['code', 'change', 'preclose', 'high', 'low']]
     # to_data['code'].isin(code) 搜索code列中是否包含list code的内容，返回结果为index bool，
     # to_data['code'].isin(code) 获取匹配结果为True的行
-    for a,b,c in to_data[to_data['code'].isin(code)].values:
-        d[a] = int((1 + float(b/100))*c)
+    for code,change,pre,high,low in to_data[to_data['code'].isin(code)].values:
+        x = {}
+        x['curr'] = int((1 + float(change/100))*pre)
+        x['high'] = int(high)
+        x['low'] = int(low)
+        d[code] = x
     return d
 
 if __name__ == '__main__':
@@ -40,7 +44,10 @@ if __name__ == '__main__':
     curr=data()
     v='''上证平均行情(Year):%s \n
 深指平均行情(Year):%s \n
-SH:%s\t\t\tSZ:%s
-''' %(str(sh), str(sz), curr['000001'], curr['399001'])
+SH：
+当前:%s\t\t\t最高:%s\t\t\t最低:%s
+SZ:
+当前:%s\t\t\t最高:%s\t\t\t最低:%s
+''' %(str(sh), str(sz), curr['000001']['curr'],curr['000001']['high'],curr['000001']['low'] , curr['399001']['curr'],curr['399001']['high'], curr['399001']['low'])
     s = Send_Message(str(v))
     s.send_message()
