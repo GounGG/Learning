@@ -14,11 +14,12 @@ class Send_Message():
     def Token(self):
         url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
         # corpid,corpsecret 为微信端获取
-        params = {'corpid':'xxx',
-        'corpsecret': r'xxx'
+        params = {'corpid':'wx02cd0899a03b0fec',
+        'corpsecret': r'9MYmeWJe40Ix6OnjtaryNB3_LHvKo17pIlJJ4_SAGI4'
         }
         url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
-        r = requests.get(url=url, params=params)
+        # verify=True 访问https站点，会进行证书验证，False忽略证书验证，还可以通过cert指定证书，例：cert=('/path/server.crt', '/path/key')
+        r = requests.get(url=url, params=params, verify=False)
         token=json.loads(r.text)['access_token']
         return token
 
@@ -37,10 +38,11 @@ class Send_Message():
         value = json.dumps(data, ensure_ascii=False)
         token = self.Token()
         url = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=%s' %(token)
-        r = requests.post(url, data=value)
+        r = requests.post(url, data=value, verify=False)
         return r.text
 
 if __name__ == '__main__':
     v = sys.argv[1]
     s = Send_Message(str(v))
     s.send_message()
+
