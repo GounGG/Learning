@@ -3,6 +3,7 @@
 
 import sys
 import nmap
+import argparse
 
 scan_data=[]
 input_scan = raw_input('Please input hosts:')
