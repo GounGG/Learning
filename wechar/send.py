@@ -14,8 +14,8 @@ class Send_Message():
     def Token(self):
         url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
         # corpid,corpsecret 为微信端获取
-        params = {'corpid':'wx02cd0899a03b0fec',
-        'corpsecret': r'9MYmeWJe40Ix6OnjtaryNB3_LHvKo17pIlJJ4_SAGI4'
+        params = {'corpid':'xxxxx',
+        'corpsecret': r'xxxx'
         }
         url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
         # verify=True 访问https站点，会进行证书验证，False忽略证书验证，还可以通过cert指定证书，例：cert=('/path/server.crt', '/path/key')
@@ -24,6 +24,7 @@ class Send_Message():
         return token
 
     def send_message(self):
+        # 当touser为@all后，toparty和totag可随意填写
         data={"touser": "@all",
         "toparty": " PartyID1 | PartyID2 ",
         "totag": " TagID1 | TagID2 ",
